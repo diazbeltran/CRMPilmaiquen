@@ -1,0 +1,41 @@
+{
+  "node": {
+    "00ec18b3cc49c68df0bedea0a1863c4416514e3b8b": {
+      "workers": {
+        "app/(app)/oportunidades/page": {
+          "moduleId": 38588,
+          "async": false,
+          "exportedName": "signOut",
+          "filename": "src/app/actions/auth.ts"
+        }
+      },
+      "exportedName": "signOut",
+      "filename": "src/app/actions/auth.ts"
+    },
+    "60e54f33e24758163fdfce9625d1799f2eeee1d43f": {
+      "workers": {
+        "app/(app)/oportunidades/page": {
+          "moduleId": 38588,
+          "async": false,
+          "exportedName": "createOportunidadAction",
+          "filename": "src/app/actions/oportunidades.ts"
+        }
+      },
+      "exportedName": "createOportunidadAction",
+      "filename": "src/app/actions/oportunidades.ts"
+    },
+    "60f6100923090bcc3b4d3e3def4e69b1876fff6579": {
+      "workers": {
+        "app/(app)/oportunidades/page": {
+          "moduleId": 38588,
+          "async": false,
+          "exportedName": "updateOportunidadEstadoAction",
+          "filename": "src/app/actions/oportunidades.ts"
+        }
+      },
+      "exportedName": "updateOportunidadEstadoAction",
+      "filename": "src/app/actions/oportunidades.ts"
+    }
+  },
+  "edge": {}
+}

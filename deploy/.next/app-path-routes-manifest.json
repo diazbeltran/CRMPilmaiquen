@@ -1,0 +1,15 @@
+{
+  "/(app)/clientes/page": "/clientes",
+  "/(app)/dashboard/page": "/dashboard",
+  "/(app)/oportunidades/page": "/oportunidades",
+  "/(app)/proyectos/[id]/page": "/proyectos/[id]",
+  "/(app)/proyectos/page": "/proyectos",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/documentos/route": "/api/documentos",
+  "/auth/callback/route": "/auth/callback",
+  "/auth/confirm/route": "/auth/confirm",
+  "/favicon.ico/route": "/favicon.ico",
+  "/login/page": "/login",
+  "/page": "/"
+}

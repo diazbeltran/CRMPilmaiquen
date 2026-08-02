@@ -1,0 +1,15 @@
+{
+  "/(app)/clientes/page": "app/(app)/clientes/page.js",
+  "/(app)/dashboard/page": "app/(app)/dashboard/page.js",
+  "/(app)/oportunidades/page": "app/(app)/oportunidades/page.js",
+  "/(app)/proyectos/[id]/page": "app/(app)/proyectos/[id]/page.js",
+  "/(app)/proyectos/page": "app/(app)/proyectos/page.js",
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/documentos/route": "app/api/documentos/route.js",
+  "/auth/callback/route": "app/auth/callback/route.js",
+  "/auth/confirm/route": "app/auth/confirm/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js"
+}

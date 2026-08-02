@@ -1,0 +1,53 @@
+{
+  "node": {
+    "00ec18b3cc49c68df0bedea0a1863c4416514e3b8b": {
+      "workers": {
+        "app/(app)/clientes/page": {
+          "moduleId": 80939,
+          "async": false,
+          "exportedName": "signOut",
+          "filename": "src/app/actions/auth.ts"
+        }
+      },
+      "exportedName": "signOut",
+      "filename": "src/app/actions/auth.ts"
+    },
+    "604ebd19c0d58a98cdd6f9c8f4fc472c648bc31ad7": {
+      "workers": {
+        "app/(app)/clientes/page": {
+          "moduleId": 80939,
+          "async": false,
+          "exportedName": "createClienteAction",
+          "filename": "src/app/actions/clientes.ts"
+        }
+      },
+      "exportedName": "createClienteAction",
+      "filename": "src/app/actions/clientes.ts"
+    },
+    "40f14a712152adde27aa15a350e00edbb52944cb2c": {
+      "workers": {
+        "app/(app)/clientes/page": {
+          "moduleId": 80939,
+          "async": false,
+          "exportedName": "deleteClienteAction",
+          "filename": "src/app/actions/clientes.ts"
+        }
+      },
+      "exportedName": "deleteClienteAction",
+      "filename": "src/app/actions/clientes.ts"
+    },
+    "6045fe7985d3b6e2a584fa46b4f59cded17f5230cd": {
+      "workers": {
+        "app/(app)/clientes/page": {
+          "moduleId": 80939,
+          "async": false,
+          "exportedName": "updateClienteAction",
+          "filename": "src/app/actions/clientes.ts"
+        }
+      },
+      "exportedName": "updateClienteAction",
+      "filename": "src/app/actions/clientes.ts"
+    }
+  },
+  "edge": {}
+}

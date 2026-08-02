@@ -1,0 +1,174 @@
+{
+  "node": {
+    "00ec18b3cc49c68df0bedea0a1863c4416514e3b8b": {
+      "workers": {
+        "app/(app)/clientes/page": {
+          "moduleId": 80939,
+          "async": false,
+          "exportedName": "signOut",
+          "filename": "src/app/actions/auth.ts"
+        },
+        "app/(app)/dashboard/page": {
+          "moduleId": 31850,
+          "async": false,
+          "exportedName": "signOut",
+          "filename": "src/app/actions/auth.ts"
+        },
+        "app/(app)/oportunidades/page": {
+          "moduleId": 38588,
+          "async": false,
+          "exportedName": "signOut",
+          "filename": "src/app/actions/auth.ts"
+        },
+        "app/(app)/proyectos/[id]/page": {
+          "moduleId": 89743,
+          "async": false,
+          "exportedName": "signOut",
+          "filename": "src/app/actions/auth.ts"
+        },
+        "app/(app)/proyectos/page": {
+          "moduleId": 51742,
+          "async": false,
+          "exportedName": "signOut",
+          "filename": "src/app/actions/auth.ts"
+        }
+      },
+      "filename": "src/app/actions/auth.ts",
+      "exportedName": "signOut"
+    },
+    "604ebd19c0d58a98cdd6f9c8f4fc472c648bc31ad7": {
+      "workers": {
+        "app/(app)/clientes/page": {
+          "moduleId": 80939,
+          "async": false,
+          "exportedName": "createClienteAction",
+          "filename": "src/app/actions/clientes.ts"
+        }
+      },
+      "filename": "src/app/actions/clientes.ts",
+      "exportedName": "createClienteAction"
+    },
+    "40f14a712152adde27aa15a350e00edbb52944cb2c": {
+      "workers": {
+        "app/(app)/clientes/page": {
+          "moduleId": 80939,
+          "async": false,
+          "exportedName": "deleteClienteAction",
+          "filename": "src/app/actions/clientes.ts"
+        }
+      },
+      "filename": "src/app/actions/clientes.ts",
+      "exportedName": "deleteClienteAction"
+    },
+    "6045fe7985d3b6e2a584fa46b4f59cded17f5230cd": {
+      "workers": {
+        "app/(app)/clientes/page": {
+          "moduleId": 80939,
+          "async": false,
+          "exportedName": "updateClienteAction",
+          "filename": "src/app/actions/clientes.ts"
+        }
+      },
+      "filename": "src/app/actions/clientes.ts",
+      "exportedName": "updateClienteAction"
+    },
+    "60e54f33e24758163fdfce9625d1799f2eeee1d43f": {
+      "workers": {
+        "app/(app)/oportunidades/page": {
+          "moduleId": 38588,
+          "async": false,
+          "exportedName": "createOportunidadAction",
+          "filename": "src/app/actions/oportunidades.ts"
+        }
+      },
+      "filename": "src/app/actions/oportunidades.ts",
+      "exportedName": "createOportunidadAction"
+    },
+    "60f6100923090bcc3b4d3e3def4e69b1876fff6579": {
+      "workers": {
+        "app/(app)/oportunidades/page": {
+          "moduleId": 38588,
+          "async": false,
+          "exportedName": "updateOportunidadEstadoAction",
+          "filename": "src/app/actions/oportunidades.ts"
+        }
+      },
+      "filename": "src/app/actions/oportunidades.ts",
+      "exportedName": "updateOportunidadEstadoAction"
+    },
+    "604313cb4fb3637da9da4eb094b52a857a09bd59a5": {
+      "workers": {
+        "app/(app)/proyectos/page": {
+          "moduleId": 51742,
+          "async": false,
+          "exportedName": "createProyectoAction",
+          "filename": "src/app/actions/proyectos.ts"
+        }
+      },
+      "filename": "src/app/actions/proyectos.ts",
+      "exportedName": "createProyectoAction"
+    },
+    "600255046c231580324aecc9d316763aff7d2af923": {
+      "workers": {
+        "app/(app)/proyectos/[id]/page": {
+          "moduleId": 89743,
+          "async": false,
+          "exportedName": "addHitoAction",
+          "filename": "src/app/actions/hitos.ts"
+        }
+      },
+      "filename": "src/app/actions/hitos.ts",
+      "exportedName": "addHitoAction"
+    },
+    "7045a3f9ae6a81dd867e5578213d04f2ce4e00f2e6": {
+      "workers": {
+        "app/(app)/proyectos/[id]/page": {
+          "moduleId": 89743,
+          "async": false,
+          "exportedName": "updateHitoEstadoAction",
+          "filename": "src/app/actions/hitos.ts"
+        }
+      },
+      "filename": "src/app/actions/hitos.ts",
+      "exportedName": "updateHitoEstadoAction"
+    },
+    "606b6a05486b8c6d4c26ae59e05c7f14a215d18074": {
+      "workers": {
+        "app/(app)/proyectos/[id]/page": {
+          "moduleId": 89743,
+          "async": false,
+          "exportedName": "deleteHitoAction",
+          "filename": "src/app/actions/hitos.ts"
+        }
+      },
+      "filename": "src/app/actions/hitos.ts",
+      "exportedName": "deleteHitoAction"
+    },
+    "60a4783d42d1b37c049844f1de64fdee131eee2337": {
+      "workers": {
+        "app/(app)/proyectos/[id]/page": {
+          "moduleId": 89743,
+          "async": false,
+          "exportedName": "deleteDocumentoAction",
+          "filename": "src/app/actions/documentos.ts"
+        }
+      },
+      "filename": "src/app/actions/documentos.ts",
+      "exportedName": "deleteDocumentoAction"
+    },
+    "60723aaf926351175eecd44b914455d8f99133a5c6": {
+      "workers": {
+        "app/(app)/proyectos/[id]/page": {
+          "moduleId": 89743,
+          "async": false,
+          "exportedName": "addObservacionAction",
+          "filename": "src/app/actions/observaciones.ts"
+        }
+      },
+      "filename": "src/app/actions/observaciones.ts",
+      "exportedName": "addObservacionAction"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "QGc5R+ap3tONkp4wLA1xpYbISwuydGkNJpYxegTQVwM="
+}
