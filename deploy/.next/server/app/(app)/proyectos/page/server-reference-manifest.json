@@ -1,6 +1,6 @@
 {
   "node": {
-    "00cc179155ccbde97245bc6246654b6333bc49026a": {
+    "006955ffbbccf196e7f1a5604bde0b9f5f041447c0": {
       "workers": {
         "app/(app)/proyectos/page": {
           "moduleId": 51742,
@@ -12,7 +12,7 @@
       "exportedName": "signOut",
       "filename": "src/app/actions/auth.ts"
     },
-    "60f1e7aef7368ad3f20b9db9abac1c9cfc8f98f5a8": {
+    "609c8012bbb17b0d77f7b5e4e4b0e91a22e3d6c4c7": {
       "workers": {
         "app/(app)/proyectos/page": {
           "moduleId": 51742,

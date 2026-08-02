@@ -1,6 +1,6 @@
 {
   "node": {
-    "00cc179155ccbde97245bc6246654b6333bc49026a": {
+    "006955ffbbccf196e7f1a5604bde0b9f5f041447c0": {
       "workers": {
         "app/(app)/proyectos/[id]/page": {
           "moduleId": 89743,
@@ -12,7 +12,7 @@
       "exportedName": "signOut",
       "filename": "src/app/actions/auth.ts"
     },
-    "605b2b0f777d1fded847377c28fc41806c3b1be2c6": {
+    "6049cfbd0050e5aa583a5b5cf0e2ac8150dcae7f80": {
       "workers": {
         "app/(app)/proyectos/[id]/page": {
           "moduleId": 89743,
@@ -24,7 +24,7 @@
       "exportedName": "addHitoAction",
       "filename": "src/app/actions/hitos.ts"
     },
-    "70f717153af3df29c3d490aa7e1119eb006b3e1b6a": {
+    "709d7c185c700190945f64245101a9a79d9b7924da": {
       "workers": {
         "app/(app)/proyectos/[id]/page": {
           "moduleId": 89743,
@@ -36,7 +36,7 @@
       "exportedName": "updateHitoEstadoAction",
       "filename": "src/app/actions/hitos.ts"
     },
-    "603bf143bc3163a7503f757a087d154c819681357f": {
+    "6093ca98febe4fe114030e542cd0f08b9110f775ab": {
       "workers": {
         "app/(app)/proyectos/[id]/page": {
           "moduleId": 89743,
@@ -48,7 +48,7 @@
       "exportedName": "deleteHitoAction",
       "filename": "src/app/actions/hitos.ts"
     },
-    "602378cb9ff1894ee9b0926936497ee53be4ae7ec3": {
+    "60a7a30aeb76a90a4814b8d047833ea710f1db68e1": {
       "workers": {
         "app/(app)/proyectos/[id]/page": {
           "moduleId": 89743,
@@ -60,7 +60,7 @@
       "exportedName": "deleteDocumentoAction",
       "filename": "src/app/actions/documentos.ts"
     },
-    "601d3be2b557f4f4e4e69323e1950942c684739e57": {
+    "609c5fda2e29c72fd1ead911064d33c97943f0e2c4": {
       "workers": {
         "app/(app)/proyectos/[id]/page": {
           "moduleId": 89743,

@@ -3,8 +3,17 @@
   "pages404": true,
   "appType": "app",
   "caseSensitive": false,
-  "basePath": "",
+  "basePath": "/CRM",
   "redirects": [
+    {
+      "source": "/CRM/",
+      "destination": "/CRM",
+      "basePath": false,
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^/CRM/$"
+    },
     {
       "source": "/:path+/",
       "destination": "/:path+",

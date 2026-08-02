@@ -1,6 +1,6 @@
 {
   "node": {
-    "00cc179155ccbde97245bc6246654b6333bc49026a": {
+    "006955ffbbccf196e7f1a5604bde0b9f5f041447c0": {
       "workers": {
         "app/(app)/clientes/page": {
           "moduleId": 80939,
@@ -12,7 +12,7 @@
       "exportedName": "signOut",
       "filename": "src/app/actions/auth.ts"
     },
-    "60dbafc25c2e3fe89a895fa70b4d4dfee315611117": {
+    "60fd3ad77efd935a42dc7d266d35c4cf82818fd6f4": {
       "workers": {
         "app/(app)/clientes/page": {
           "moduleId": 80939,
@@ -24,7 +24,7 @@
       "exportedName": "createClienteAction",
       "filename": "src/app/actions/clientes.ts"
     },
-    "40429a4389495f8f2edd1757fae7af07c08aa4f7c9": {
+    "400590f2f7e71ae371e362e9a1bfc982f1a110ca7c": {
       "workers": {
         "app/(app)/clientes/page": {
           "moduleId": 80939,
@@ -36,7 +36,7 @@
       "exportedName": "deleteClienteAction",
       "filename": "src/app/actions/clientes.ts"
     },
-    "60370d6a5c364225b0cadb0c3b720bcbe92ceb42f6": {
+    "60835711a17d09ab30c1823d2a9319335e53b7dcb2": {
       "workers": {
         "app/(app)/clientes/page": {
           "moduleId": 80939,
