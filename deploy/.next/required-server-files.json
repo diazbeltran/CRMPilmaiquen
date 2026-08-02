@@ -96,7 +96,6 @@
     "compiler": {},
     "expireTime": 31536000,
     "staticPageGenerationTimeout": 60,
-    "output": "standalone",
     "modularizeImports": {
       "@mui/icons-material": {
         "transform": "@mui/icons-material/{{member}}"
@@ -105,7 +104,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "E:\\CRMPilmaiquen",
+    "outputFileTracingRoot": ".",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -305,11 +304,11 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts",
     "turbopack": {
-      "root": "E:\\CRMPilmaiquen"
+      "root": "."
     },
     "distDirRoot": ".next"
   },
-  "appDir": "E:\\CRMPilmaiquen",
+  "appDir": ".",
   "relativeAppDir": "",
   "files": [
     ".next\\package.json",
