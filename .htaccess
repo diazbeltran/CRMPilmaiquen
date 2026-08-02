@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Prevent Apache from intercepting _next static assets
+# These must reach the Node.js process
+RewriteRule ^_next/ - [L]
