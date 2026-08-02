@@ -1,6 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const http = require('http')
+const next = require('next')
 
 const deployDir = __dirname
 const appDir = path.resolve(deployDir, '..')
@@ -8,144 +9,31 @@ const appDir = path.resolve(deployDir, '..')
 process.env.NODE_ENV = 'production'
 process.chdir(deployDir)
 
-const currentPort = parseInt(process.env.PORT, 10) || 3000
-const hostname = process.env.HOSTNAME || '0.0.0.0'
+const port = parseInt(process.env.PORT, 10) || 3000
+const host = '0.0.0.0'
 
-const nextBuildDir = fs.existsSync(path.join(appDir, '.next'))
-  ? appDir
-  : deployDir
+const buildDir = fs.existsSync(path.join(appDir, '.next')) ? appDir : deployDir
 
-function ensureSymlink() {
-  const linkPath = path.join(appDir, '_next')
-  const targetPath = path.join(nextBuildDir, '.next')
-
+;[path.join(appDir, '.next'), path.join(deployDir, '.next')].forEach(target => {
+  if (!fs.existsSync(target)) return
+  const link = path.join(appDir, '_next')
   try {
-    const stats = fs.lstatSync(linkPath)
-    if (stats.isSymbolicLink()) {
-      const existing = fs.readlinkSync(linkPath)
-      if (existing !== targetPath) {
-        fs.unlinkSync(linkPath)
-        fs.symlinkSync(targetPath, linkPath)
-        console.log(`> Updated symlink: _next -> ${path.relative(appDir, targetPath)}`)
-      } else {
-        console.log(`> Symlink OK: _next -> ${path.relative(appDir, targetPath)}`)
-      }
-      return
-    }
-    console.log(`> Note: _next exists as ${stats.isDirectory() ? 'directory' : 'file'}, skipping symlink`)
-  } catch (e) {
-    try {
-      fs.symlinkSync(targetPath, linkPath)
-      console.log(`> Created symlink: _next -> ${path.relative(appDir, targetPath)}`)
-    } catch (e2) {
-      console.warn('> Warning: Could not create _next symlink:', e2.message)
-    }
-  }
-}
+    const s = fs.lstatSync(link)
+    if (s.isSymbolicLink() && fs.readlinkSync(link) === target) return
+    if (s.isDirectory() || s.isFile()) return
+  } catch {}
+  try { fs.symlinkSync(target, link) } catch (e) { console.warn('symlink:', e.message) }
+})
 
-const MIME_TYPES = {
-  '.css': 'text/css; charset=utf-8',
-  '.js': 'application/javascript; charset=utf-8',
-  '.mjs': 'application/javascript; charset=utf-8',
-  '.json': 'application/json; charset=utf-8',
-  '.png': 'image/png',
-  '.jpg': 'image/jpeg',
-  '.jpeg': 'image/jpeg',
-  '.gif': 'image/gif',
-  '.svg': 'image/svg+xml',
-  '.ico': 'image/x-icon',
-  '.woff': 'font/woff',
-  '.woff2': 'font/woff2',
-  '.ttf': 'font/ttf',
-  '.eot': 'application/vnd.ms-fontobject',
-  '.webp': 'image/webp',
-  '.map': 'application/json',
-  '.txt': 'text/plain; charset=utf-8',
-}
-
-function getMimeType(filePath) {
-  const ext = path.extname(filePath.split('?')[0]).toLowerCase()
-  return MIME_TYPES[ext] || 'application/octet-stream'
-}
-
-function tryServeFile(res, filePath) {
-  return new Promise((resolve) => {
-    fs.stat(filePath, (err, stat) => {
-      if (err || !stat.isFile()) {
-        resolve(false)
-        return
-      }
-      res.writeHead(200, {
-        'Content-Type': getMimeType(filePath),
-        'Cache-Control': 'public, max-age=31536000, immutable',
-      })
-      fs.createReadStream(filePath).pipe(res)
-      resolve(true)
-    })
-  })
-}
-
-async function serveStaticFile(req, res) {
-  const urlPath = req.url.split('?')[0]
-  const relativeFromNext = urlPath.replace(/^\/_next\//, '')
-
-  const candidates = [
-    path.join(nextBuildDir, '.next', relativeFromNext),
-    path.join(appDir, '.next', relativeFromNext),
-    path.join(deployDir, '.next', relativeFromNext),
-    path.join(appDir, 'public', urlPath),
-    path.join(deployDir, 'public', urlPath),
-  ]
-
-  for (const filePath of candidates) {
-    if (await tryServeFile(res, filePath)) return
-  }
-
-  res.writeHead(404)
-  res.end('Not Found')
-}
-
-const next = require('next')
-const app = next({ dev: false, dir: nextBuildDir })
+const app = next({ dev: false, dir: buildDir })
 const handle = app.getRequestHandler()
 
-ensureSymlink()
-
 app.prepare().then(() => {
-  const server = http.createServer(async (req, res) => {
-    if (req.url === '/_server-test') {
-      let symlinkTarget = 'none'
-      try { symlinkTarget = fs.readlinkSync(path.join(appDir, '_next')) } catch {}
+  http.createServer((req, res) => {
+    if (req.url === '/_test') {
       res.writeHead(200, { 'Content-Type': 'application/json' })
-      res.end(JSON.stringify({ status: 'ok', nextBuildDir, symlink: symlinkTarget }))
-      return
+      return res.end(JSON.stringify({ ok: true, buildDir }))
     }
-
-    if (req.url && req.url.startsWith('/_next/')) {
-      await serveStaticFile(req, res)
-      return
-    }
-
     handle(req, res)
-  })
-
-  let keepAliveTimeout = parseInt(process.env.KEEP_ALIVE_TIMEOUT, 10)
-  if (Number.isNaN(keepAliveTimeout) || !Number.isFinite(keepAliveTimeout) || keepAliveTimeout < 0) {
-    keepAliveTimeout = undefined
-  }
-  if (keepAliveTimeout !== undefined) {
-    server.keepAliveTimeout = keepAliveTimeout
-  }
-
-  server.listen(currentPort, hostname, (err) => {
-    if (err) {
-      console.error('Failed to start server:', err)
-      process.exit(1)
-    }
-    console.log(`> CRM Pilmaiquen ready on http://${hostname}:${currentPort}`)
-    console.log(`> Build dir: ${nextBuildDir}`)
-  })
-}).catch((err) => {
-  console.error('app.prepare() failed:', err)
-  process.exit(1)
-})
+  }).listen(port, host, () => console.log(`> Ready http://${host}:${port} (buildDir: ${buildDir})`))
+}).catch(err => { console.error(err); process.exit(1) })

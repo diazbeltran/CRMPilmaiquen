@@ -104,7 +104,7 @@ self.__SERVER_FILES_MANIFEST={
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "E:\\CRMPilmaiquen",
+    "outputFileTracingRoot": ".",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -304,11 +304,11 @@ self.__SERVER_FILES_MANIFEST={
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts",
     "turbopack": {
-      "root": "E:\\CRMPilmaiquen"
+      "root": "."
     },
     "distDirRoot": ".next"
   },
-  "appDir": "E:\\CRMPilmaiquen",
+  "appDir": ".",
   "relativeAppDir": "",
   "files": [
     ".next\\package.json",
