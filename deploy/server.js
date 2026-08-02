@@ -15,6 +15,34 @@ const nextBuildDir = fs.existsSync(path.join(appDir, '.next'))
   ? appDir
   : deployDir
 
+function ensureSymlink() {
+  const linkPath = path.join(appDir, '_next')
+  const targetPath = path.join(nextBuildDir, '.next')
+
+  try {
+    const stats = fs.lstatSync(linkPath)
+    if (stats.isSymbolicLink()) {
+      const existing = fs.readlinkSync(linkPath)
+      if (existing !== targetPath) {
+        fs.unlinkSync(linkPath)
+        fs.symlinkSync(targetPath, linkPath)
+        console.log(`> Updated symlink: _next -> ${path.relative(appDir, targetPath)}`)
+      } else {
+        console.log(`> Symlink OK: _next -> ${path.relative(appDir, targetPath)}`)
+      }
+      return
+    }
+    console.log(`> Note: _next exists as ${stats.isDirectory() ? 'directory' : 'file'}, skipping symlink`)
+  } catch (e) {
+    try {
+      fs.symlinkSync(targetPath, linkPath)
+      console.log(`> Created symlink: _next -> ${path.relative(appDir, targetPath)}`)
+    } catch (e2) {
+      console.warn('> Warning: Could not create _next symlink:', e2.message)
+    }
+  }
+}
+
 const MIME_TYPES = {
   '.css': 'text/css; charset=utf-8',
   '.js': 'application/javascript; charset=utf-8',
@@ -35,8 +63,8 @@ const MIME_TYPES = {
   '.txt': 'text/plain; charset=utf-8',
 }
 
-function getMimeType(url) {
-  const ext = path.extname(url.split('?')[0]).toLowerCase()
+function getMimeType(filePath) {
+  const ext = path.extname(filePath.split('?')[0]).toLowerCase()
   return MIME_TYPES[ext] || 'application/octet-stream'
 }
 
@@ -63,6 +91,8 @@ async function serveStaticFile(req, res) {
 
   const candidates = [
     path.join(nextBuildDir, '.next', relativeFromNext),
+    path.join(appDir, '.next', relativeFromNext),
+    path.join(deployDir, '.next', relativeFromNext),
     path.join(appDir, 'public', urlPath),
     path.join(deployDir, 'public', urlPath),
   ]
@@ -79,11 +109,15 @@ const next = require('next')
 const app = next({ dev: false, dir: nextBuildDir })
 const handle = app.getRequestHandler()
 
+ensureSymlink()
+
 app.prepare().then(() => {
   const server = http.createServer(async (req, res) => {
     if (req.url === '/_server-test') {
+      let symlinkTarget = 'none'
+      try { symlinkTarget = fs.readlinkSync(path.join(appDir, '_next')) } catch {}
       res.writeHead(200, { 'Content-Type': 'application/json' })
-      res.end(JSON.stringify({ status: 'ok', dir: nextBuildDir, port: currentPort }))
+      res.end(JSON.stringify({ status: 'ok', nextBuildDir, symlink: symlinkTarget }))
       return
     }
 
