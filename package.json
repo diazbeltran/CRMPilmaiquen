@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "deploy": "npm run build && node deploy.js",
     "start": "node server.js"
   },
   "dependencies": {
