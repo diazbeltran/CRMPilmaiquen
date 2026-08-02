@@ -1,6 +1,6 @@
 {
   "node": {
-    "00ec18b3cc49c68df0bedea0a1863c4416514e3b8b": {
+    "00615c4f0e7ab75a76e32ae6bb0b90ab20610ad13c": {
       "workers": {
         "app/(app)/oportunidades/page": {
           "moduleId": 38588,
@@ -12,7 +12,7 @@
       "exportedName": "signOut",
       "filename": "src/app/actions/auth.ts"
     },
-    "60e54f33e24758163fdfce9625d1799f2eeee1d43f": {
+    "605334f8d94a6c3b35e439b6dce8a5dbefead32ede": {
       "workers": {
         "app/(app)/oportunidades/page": {
           "moduleId": 38588,
@@ -24,7 +24,7 @@
       "exportedName": "createOportunidadAction",
       "filename": "src/app/actions/oportunidades.ts"
     },
-    "60f6100923090bcc3b4d3e3def4e69b1876fff6579": {
+    "6087c2906da87c6f39062e4f2a9069f557ca5c27db": {
       "workers": {
         "app/(app)/oportunidades/page": {
           "moduleId": 38588,
